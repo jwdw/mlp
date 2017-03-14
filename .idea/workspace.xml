@@ -5,8 +5,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/mlp/Matrix.class" afterPath="$PROJECT_DIR$/out/production/mlp/Matrix.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/mlp/mlp.class" afterPath="$PROJECT_DIR$/out/production/mlp/mlp.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Matrix.java" afterPath="$PROJECT_DIR$/src/Matrix.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mlp.java" afterPath="$PROJECT_DIR$/src/mlp.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -367,7 +365,14 @@
       <option name="project" value="LOCAL" />
       <updated>1489493395971</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="more progress">
+      <created>1489497524659</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1489497524659</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -409,7 +414,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="progress" />
-    <option name="LAST_COMMIT_MESSAGE" value="progress" />
+    <MESSAGE value="more progress" />
+    <option name="LAST_COMMIT_MESSAGE" value="more progress" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
