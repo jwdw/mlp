@@ -86,12 +86,14 @@ public class Matrix {
         return C;
     }
 
-    public void multiply(double a) {
+    public Matrix multiply(double a) {
+        Matrix A = new Matrix(this.m,this.n);
         for (int i = 0; i < this.m; i++) {
             for (int j = 0; j < this.n; j++) {
-                this.data[i][j] *= a;
+                A.data[i][j] = this.data[i][j] * a;
             }
         }
+        return A;
     }
 
     public Matrix addBias(double bias_value){
@@ -156,6 +158,17 @@ public class Matrix {
             B.data[0][j] = A.data[0][j] * (1 - A.data[0][j]);
         }
         return B;
+    }
+
+    public Matrix multiplyElementwise(Matrix B){
+        Matrix A = this;
+        if (B.m != A.m || B.n != A.n) throw new RuntimeException("Illegal matrix dimensions.");
+        Matrix C = new Matrix(A.m, A.n);
+        for (int i = 0; i < m; i++)
+            for (int j = 0; j < n; j++)
+                C.data[i][j] = A.data[i][j] * B.data[i][j];
+        return C;
+
     }
 
 }

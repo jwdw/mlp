@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="01c08a53-1c35-460a-8517-4a072aea3f93" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mlp/Matrix.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/mlp/mlp.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/mlp/Matrix.class" afterPath="$PROJECT_DIR$/out/production/mlp/Matrix.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/mlp/mlp.class" afterPath="$PROJECT_DIR$/out/production/mlp/mlp.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Matrix.java" afterPath="$PROJECT_DIR$/src/Matrix.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mlp.java" afterPath="$PROJECT_DIR$/src/mlp.java" />
@@ -26,8 +25,8 @@
       <file leaf-file-name="Matrix.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Matrix.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="358">
-              <caret line="157" column="17" lean-forward="false" selection-start-line="157" selection-start-column="17" selection-end-line="157" selection-end-column="17" />
+            <state relative-caret-position="164">
+              <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -36,8 +35,8 @@
       <file leaf-file-name="mlp.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/mlp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="43" lean-forward="false" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
+            <state relative-caret-position="913">
+              <caret line="97" column="0" lean-forward="true" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -361,6 +360,14 @@
       <option name="presentableId" value="Default" />
       <updated>1489486223741</updated>
     </task>
+    <task id="LOCAL-00001" summary="progress">
+      <created>1489493395971</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1489493395971</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -400,6 +407,10 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="progress" />
+    <option name="LAST_COMMIT_MESSAGE" value="progress" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
@@ -411,16 +422,16 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Matrix.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="157" column="17" lean-forward="false" selection-start-line="157" selection-start-column="17" selection-end-line="157" selection-end-column="17" />
+        <state relative-caret-position="164">
+          <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/mlp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="43" lean-forward="false" selection-start-line="16" selection-start-column="43" selection-end-line="16" selection-end-column="43" />
+        <state relative-caret-position="913">
+          <caret line="97" column="0" lean-forward="true" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
           <folding />
         </state>
       </provider>

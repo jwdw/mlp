@@ -14,7 +14,7 @@ public class mlp {
         Matrix D = new Matrix(new double[][] {{1,2,3,4}});
         Matrix E = new Matrix(new double[][] {{1,2,3,4}});
 
-        Matrix F = D.multiply(E.transpose());
+        Matrix F = D.multiplyElementwise(E);
         F.print();
 
 
@@ -36,10 +36,10 @@ public class mlp {
         double bias_value = -1.0;
 
         Matrix w_hidden = Matrix.random(n_input + 1, n_hidden);
-        w_hidden.multiply(weight_spread - (weight_spread/2) + mean_weight);
+        w_hidden = w_hidden.multiply(weight_spread - (weight_spread/2) + mean_weight);
 
         Matrix w_output = Matrix.random(n_hidden, n_output);
-        w_output.multiply(weight_spread - (weight_spread/2) + mean_weight);
+        w_output = w_output.multiply(weight_spread - (weight_spread/2) + mean_weight);
 
         double min_error = 0.01;
         boolean stop_criterium = false;
@@ -49,7 +49,7 @@ public class mlp {
 
             //noise not correct yet
             Matrix noise = Matrix.random(examples.numRows(),examples.numCols());
-            noise.multiply(noise_level);
+            noise = noise.multiply(noise_level);
 
             Matrix input_data = examples.add(noise);
 
@@ -78,9 +78,23 @@ public class mlp {
                 Matrix local_gradient_output = output_activation.d_sigmoid();
                 local_gradient_output.multiply(output_error);
 
-                local_gradient_output.print();
+                Matrix hidden_error = w_output.multiply(local_gradient_output.data[0][0]);
 
                 Matrix local_gradient_hidden = hidden_activation.d_sigmoid();
+                local_gradient_hidden = local_gradient_hidden.multiplyElementwise(hidden_error.transpose());
+
+
+                Matrix delta_output = hidden_output.multiply(local_gradient_output.data[0][0]);
+                delta_output = delta_output.multiply(learn_rate);
+
+
+                Matrix delta_hidden = input_data.getRow(pattern).transpose().multiply(local_gradient_hidden);
+                delta_hidden = delta_hidden.multiply(learn_rate);
+                //delta_hidden.print();
+
+                w_hidden = w_hidden.add(delta_hidden);
+
+                w_output = w_output.add(delta_output.transpose());
 
 
             }
