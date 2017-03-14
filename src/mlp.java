@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Created by jw on 11-3-17.
  */
@@ -15,7 +17,7 @@ public class mlp {
         Matrix E = new Matrix(new double[][] {{1,2,3,4}});
 
         Matrix F = D.multiplyElementwise(E);
-        F.print();
+        //F.print();
 
 
         Matrix examples = new Matrix(new double[][] {{0,0},{1,0},{0,1},{1,1}});
@@ -45,7 +47,10 @@ public class mlp {
         boolean stop_criterium = false;
         int epoch = 0;
 
+        ArrayList h_error = new ArrayList();
+
         while(!stop_criterium){
+            epoch += 1;
 
             //noise not correct yet
             Matrix noise = Matrix.random(examples.numRows(),examples.numCols());
@@ -76,7 +81,7 @@ public class mlp {
                 double output_error = goal.data[pattern][0] - output;
 
                 Matrix local_gradient_output = output_activation.d_sigmoid();
-                local_gradient_output.multiply(output_error);
+                local_gradient_output = local_gradient_output.multiply(output_error);
 
                 Matrix hidden_error = w_output.multiply(local_gradient_output.data[0][0]);
 
@@ -90,19 +95,24 @@ public class mlp {
 
                 Matrix delta_hidden = input_data.getRow(pattern).transpose().multiply(local_gradient_hidden);
                 delta_hidden = delta_hidden.multiply(learn_rate);
-                //delta_hidden.print();
 
                 w_hidden = w_hidden.add(delta_hidden);
 
                 w_output = w_output.add(delta_output.transpose());
 
+                epoch_error += output_error * output_error;
 
             }
 
+            h_error.add(epoch_error / input_data.numRows());
 
-            stop_criterium = true;
+            if (epoch >= max_epoch || epoch_error < min_error){
+                stop_criterium = true;
+            }
 
         }
+        System.out.println(epoch);
+        System.out.println(h_error);
 
 
     }
