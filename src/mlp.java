@@ -112,9 +112,29 @@ public class mlp {
 
         }
         System.out.println(epoch);
-        System.out.println(h_error);
+        //System.out.println(h_error);
 
 
+        for (int pattern = 0; pattern < examples.numRows(); pattern++) {
+            Matrix input_data = examples.addBias(bias_value);
+
+            Matrix hidden_activation = input_data.getRow(pattern);
+            hidden_activation = hidden_activation.multiply(w_hidden);
+
+            Matrix hidden_output = hidden_activation.sigmoid();
+
+            Matrix output_activation = hidden_output.multiply(w_output);
+
+            //1x1 matrix
+            Matrix outputM = output_activation.sigmoid();
+            double output = outputM.data[0][0];
+
+            System.out.println("Input: ");
+            examples.getRow(pattern).print();
+            System.out.println("Output: ");
+            System.out.println(output);
+            System.out.println();
+        }
     }
 }
 
