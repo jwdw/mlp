@@ -1,10 +1,12 @@
+import java.util.Random;
+
 /**
  * Created by jw on 11-3-17.
  */
 public class Matrix {
     private int m; //rows
     private int n; //columns
-    private double[][] data;
+    public double[][] data;
 
     public Matrix(int m, int n){
         this.m = m;
@@ -23,10 +25,11 @@ public class Matrix {
     }
 
     public static Matrix random(int m, int n) {
+        Random random = new Random();
         Matrix A = new Matrix(m, n);
         for (int i = 0; i < m; i++)
             for (int j = 0; j < n; j++)
-                A.data[i][j] = Math.random();
+                A.data[i][j] = random.nextDouble()*2 - 1;
         return A;
     }
 
@@ -91,6 +94,19 @@ public class Matrix {
         }
     }
 
+    public Matrix addBias(double bias_value){
+        Matrix A = new Matrix(this.m, this.n+1);
+        for (int i = 0; i < this.m; i++) {
+            for (int j = 0; j < this.n; j++) {
+                A.data[i][j] = this.data[i][j];
+            }
+        }
+        for (int k = 0; k < A.m; k++) {
+            A.data[k][A.n-1] = bias_value;
+        }
+        return A;
+    }
+
     public void print() {
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
@@ -102,12 +118,44 @@ public class Matrix {
         System.out.println();
     }
 
+    public Matrix getRow(int index) {
+        Matrix A = new Matrix(1,this.n);
+        for (int i = 0; i < this.n; i++){
+            A.data[0][i] = this.data[index][i];
+        }
+        return A;
+    }
+    public Matrix getCol(int index) {
+        Matrix A = new Matrix(this.m,1);
+        for (int i = 0; i < this.m; i++){
+            A.data[i][0] = this.data[i][index];
+        }
+        return A;
+    }
+
     public int numRows(){
         return this.m;
     }
 
     public int numCols(){
         return this.n;
+    }
+
+    public Matrix sigmoid(){
+        Matrix A = new Matrix(this.m,this.n);
+        for (int j = 0; j < this.n; j++){
+            A.data[0][j] = (1/( 1 + Math.pow(Math.E,(-1*this.data[0][j]))));;
+        }
+        return A;
+    }
+
+    public Matrix d_sigmoid(){
+        Matrix A = this.sigmoid();
+        Matrix B = new Matrix(this.m,this.n);
+        for (int j = 0; j < this.n; j++){
+            B.data[0][j] = A.data[0][j] * (1 - A.data[0][j]);
+        }
+        return B;
     }
 
 }
